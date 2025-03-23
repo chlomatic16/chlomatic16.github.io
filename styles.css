@@ -1,21 +1,21 @@
-/* Fonts*/
+/* Fonts */
 @font-face {
-  font-family: KOCHI;
-  src: url("fonts/KOCHI.otf") format("opentype");
+  font-family: Bagel;
+  src: url("fonts/BagelFatOne-Regular.ttf") format("opentype");
 }
 @font-face {
-  font-family: Darker;
-  src: url("fonts/DarkerGrotesque-VariableFont_wght.ttf") format("opentype");
+  font-family: Gowun;
+  src: url("fonts/GowunDodum-Regular.ttf") format("opentype");
 }
 
-/* Global Styles (Default for English) */
+/* Global Styles */
 body {
-  margin-left: 8rem;
-  margin-right: 8rem;
-  font-family: 'Darker', sans-serif;
-  font-size: 1rem; /* Default font size */
-  background: #e9f0e5;
-  color: #2a2d23;
+  margin-left: 7.5rem;
+  margin-right: 7.5rem;
+  font-family: 'Gowun', sans-serif;
+  font-size: 1.2rem; 
+  background: #CACC90;
+  color: #593915;
 }
 
 header nav {
@@ -33,25 +33,58 @@ nav ul {
 }
 
 nav a {
-  color: #2a2d23;
+  color: #593915;
   text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: all 0.6s ease-in;
+  animation-duration: 2s;
+}
+
+a:hover {
+  animation-name: pulse;
+  animation-iteration-count: infinite;
 }
 
 button {
   background: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  border: 1px solid #2a2d23;
-  color: #2a2d23;
+  border: 1px solid #593915;
+  border-radius: 21%;
+  color: #593915;
+  transition: all 0.6s ease-in;
+  animation-duration: 2s;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 3rem;
-  background-color: #2a2d23;
+button:hover {
+  animation-name: pulse; 
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* decoration boxes */
+.box {
+  position: absolute; 
+  top: 43rem; 
+  left: 0; 
+  width: 100vw; 
+  height: 40%; 
+  z-index: -1; 
+  background-color: #8BA6A9; 
+  aspect-ratio: 3/2;
+  clip-path: ellipse(80% 100% at 50% 0%);
 }
 
 p {
@@ -60,7 +93,7 @@ p {
 }
 
 .hero, .about, .projects {
-  height: 90vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,7 +112,7 @@ p {
   text-align: left;
   width: 100%;
   margin: 0;
-  padding-bottom: 1rem;
+  padding-bottom: 0;
 }
 
 .hero {
@@ -99,15 +132,15 @@ p {
 
 .role {
   font-size: 2.5rem;
-  margin-top: 1rem;
 }
 
 .bio {
-  flex: 1;
+  max-width: 600px;
+  flex: 2;
 }
 
 .project-card {
-  border: 1px solid #e5e5dc;
+  border: 1px solid #CACC90;
   padding: 2rem;
   margin: 1rem;
   cursor: pointer;
@@ -115,26 +148,23 @@ p {
 
 /* Index Page */
 #indexPage {
-  background: #2a2d23;
-  color: #e5e5dc;
+  background: #593915;
+  color: #F4EBBE;
 }
 
 #indexPage nav a {
-  color: #e5e5dc;
+  color: #CACC90;
 }
 
 #indexPage button {
-  /* background: none; */
-  border: 1px solid #e5e5dc;
-  color: #e5e5dc;
-  /* padding: 0.5rem 1rem;
-  cursor: pointer; */
+  border: 1px solid #CACC90;
+  color: #CACC90;
 }
 
 /* About Page */
 #aboutPage #helloTitle {
-  font-family: KOCHI;
-  font-size: 8rem;
+  font-family: Bagel;
+  font-size: 6.5rem;
   padding: none;
   margin: none;
 }
@@ -147,6 +177,7 @@ p {
   display: flex;
   gap: 10rem;
   margin: 0 auto;
+  margin-top: 25rem;
 }
 
 #aboutPage .column {
@@ -154,11 +185,11 @@ p {
 }
 
 #aboutPage section > p {
-  margin-bottom: 2.75rem;
+  margin-bottom: 2rem;
 }
 
 #aboutPage h2 {
-  font-family: 'KOCHI', sans-serif;
+  font-family: 'Bagel', sans-serif;
   font-size: 2.75rem;
   margin-top: 3rem;
   margin-bottom: .25rem;
@@ -190,6 +221,7 @@ p {
   margin-bottom: 0.2rem;
   list-style-type: none;
   margin-left: -1rem;
+  font-size: 1rem;
 }
 
 #aboutPage section {
@@ -197,9 +229,40 @@ p {
 }
 
 #aboutPhoto {
-  border-radius: 30%;
-  height: 25rem;
-  margin-right: 3.5rem;
+  flex: 1; 
+  max-width: 450px; 
+  border-radius: 20%;
+  margin-right: 5rem;
+}
+
+/* Contact Section Styles */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.contact-list i {
+  font-size: 1.5rem; /* Adjust icon size */
+  margin-right: 0.5rem; /* Add spacing between icon and text */
+  color: #593915; /* Icon color */
+}
+
+.contact-list a {
+  text-decoration: none;
+  color: #593915;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+  color: #8BA6A9; /* Change color on hover */
 }
 
 /* Portfolio Animation */
@@ -209,44 +272,15 @@ p {
 }
 
 #portfolio {
-  font-family: 'KOCHI', sans-serif;
-  font-size: 10rem;
-  padding: 0;
-  margin: 0;
+  font-family: 'Bagel', sans-serif;
+  font-size: 12rem;
   font-weight: 800;
   letter-spacing: 4px;
   text-shadow:
-    calc(var(--x) * -1) calc(var(--y) * -1) 0px oldlace,
-    calc(var(--x) * -2) calc(var(--y) * -2) 0px rgb(237, 191, 104),
-    calc(var(--x) * -3) calc(var(--y) * -3) 0px rgb(222, 149, 14);
-}
-
-/* Default styles (English) */
-body.lang-en {
-  font-family: 'Darker', sans-serif;
-  font-size: 1rem; /* Default font size */
-  color: #2a2d23;
+    calc(var(--x) * -1) calc(var(--y) * -1) 0px #CACC90,
+    calc(var(--x) * -2) calc(var(--y) * -2) 0px #A7CECB,
+    calc(var(--x) * -3) calc(var(--y) * -3) 0px #8BA6A9;
 }
 
 /* Korean-specific styles */
-body.lang-ko {
-  font-family: 'KOCHI', sans-serif; /* Use a different font for Korean */
-  font-size: 1.2rem; /* Adjust font size for Korean text */
-  line-height: 1.6; /* Adjust line height for readability */
-  color: #2a2d23; /* Optional: Change text color if needed */
-}
-
-/* Example: Adjust specific elements for Korean */
-body.lang-ko h1,
-body.lang-ko h2,
-body.lang-ko h3 {
-  font-size: 1.5rem; /* Adjust heading sizes for Korean */
-}
-
-body.lang-ko p {
-  font-size: 1.1rem; /* Adjust paragraph font size */
-}
-
-body.lang-ko .bio {
-  text-align: justify; /* Optional: Change text alignment */
-}
+/* body.lang-ko
