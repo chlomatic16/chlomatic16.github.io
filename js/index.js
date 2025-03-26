@@ -12,4 +12,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.body.addEventListener('mousemove', updateShadow);
+
+  const aboutItems = document.querySelectorAll("#aboutSection .aboutContent > *");
+  const passionItems = document.querySelectorAll("#passionSection .passion-grid > *");
+  const portfolioItems = document.querySelectorAll("#projectSection .project-grid > *"); // Fix selector
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-in");
+        observer.unobserve(entry.target); // Stop observing once animated
+      }
+    });
+  });
+
+  aboutItems.forEach((item) => observer.observe(item));
+  passionItems.forEach((item) => observer.observe(item));
+  portfolioItems.forEach((item) => observer.observe(item));
 });

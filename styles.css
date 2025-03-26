@@ -10,12 +10,13 @@
 
 /* Global Styles */
 body {
-  margin-left: 7.5rem;
-  margin-right: 7.5rem;
+  margin-left: 5.5rem;
+  margin-right: 5.5rem;
   font-family: 'Gowun', sans-serif;
   font-size: 1.2rem; 
   background: #CACC90;
   color: #593915;
+  overflow-x: hidden; 
 }
 
 header nav {
@@ -39,6 +40,27 @@ nav a {
   display: inline-block;
   transition: all 0.6s ease-in;
   animation-duration: 2s;
+}
+
+.nav-left ul, .nav-right ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-right ul {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 a:hover {
@@ -76,15 +98,25 @@ button:hover {
 
 /* decoration boxes */
 .box {
-  position: absolute; 
-  top: 43rem; 
+  position: absolute;  
   left: 0; 
   width: 100vw; 
-  height: 40%; 
-  z-index: -1; 
-  background-color: #8BA6A9; 
+  height: 25%; 
+  z-index: 1; 
+  background-color: #593915;
   aspect-ratio: 3/2;
-  clip-path: ellipse(80% 100% at 50% 0%);
+  clip-path: ellipse(70% 100% at 50% 0%);
+}
+
+.box-secondary {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 25%;
+  z-index: 1;
+  background-color: #CACC90; /* Same color as #aboutSection */
+  aspect-ratio: 3/2;
+  clip-path: ellipse(70% 100% at 50% 0%);
 }
 
 p {
@@ -93,7 +125,7 @@ p {
 }
 
 .hero, .about, .projects {
-  height: 80vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -116,7 +148,7 @@ p {
 }
 
 .hero {
-  height: 73vh;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -161,78 +193,61 @@ p {
   color: #CACC90;
 }
 
-/* About Page */
-#aboutPage #helloTitle {
-  font-family: Bagel;
-  font-size: 6.5rem;
-  padding: none;
-  margin: none;
+/* About Section in Index Page */
+#aboutSection {
+  position: relative; 
+  left: -5.5rem; 
+  right: -5.5rem; 
+  background: #CACC90; 
+  color: #593915;
+  width: 100vw; 
+  padding: 18rem 0 0 0; 
+  box-sizing: border-box; 
 }
 
-#aboutPage p:nth-child(2) {
+#aboutSection .aboutContent {
+  max-width: calc(100% - 11rem); 
+  margin: 0 auto; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; 
+}
+
+#aboutSection img {
+  flex: 1; 
+  max-width: 425px; 
+  border-radius: 20%;
+  border: 15px solid #8BA6A9; 
+  /* box-shadow: 0 8px 15px blue; Add a subtle shadow */
+  margin-right: 5rem;
+}
+
+#aboutSection .bio {
+  flex: 2;
+  max-width: 600px;
+}
+
+#aboutSection #helloTitle {
+  font-family: Bagel;
+  font-size: 6.5rem;
+  margin: 0;
+}
+
+#aboutSection p {
+  margin: 0;
   padding-bottom: 1.5rem;
 }
 
-#aboutPage .container {
-  display: flex;
-  gap: 10rem;
-  margin: 0 auto;
-  margin-top: 25rem;
+#aboutSection .aboutContent > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-#aboutPage .column {
-  flex: 0, 1;
-}
-
-#aboutPage section > p {
-  margin-bottom: 2rem;
-}
-
-#aboutPage h2 {
-  font-family: 'Bagel', sans-serif;
-  font-size: 2.75rem;
-  margin-top: 3rem;
-  margin-bottom: .25rem;
-}
-
-#aboutPage h3 {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-#aboutPage h3 span {
-  font-weight: normal;
-  font-size: smaller;
-}
-
-#aboutPage h4 {
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-}
-
-#aboutPage ul {
-  margin: 0.2rem 0 1rem 1.2rem;
-  padding: 0;
-}
-
-#aboutPage ul li {
-  margin-bottom: 0.2rem;
-  list-style-type: none;
-  margin-left: -1rem;
-  font-size: 1rem;
-}
-
-#aboutPage section {
-  margin-bottom: 2rem;
-}
-
-#aboutPhoto {
-  flex: 1; 
-  max-width: 450px; 
-  border-radius: 20%;
-  margin-right: 5rem;
+#aboutSection .aboutContent > *.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Contact Section Styles */
@@ -249,9 +264,9 @@ p {
 }
 
 .contact-list i {
-  font-size: 1.5rem; /* Adjust icon size */
-  margin-right: 0.5rem; /* Add spacing between icon and text */
-  color: #593915; /* Icon color */
+  font-size: 1.5rem; 
+  margin-right: 0.5rem; 
+  color: #593915; 
 }
 
 .contact-list a {
@@ -262,7 +277,7 @@ p {
 }
 
 .contact-list a:hover {
-  color: #8BA6A9; /* Change color on hover */
+  color: #8BA6A9; 
 }
 
 /* Portfolio Animation */
@@ -282,5 +297,159 @@ p {
     calc(var(--x) * -3) calc(var(--y) * -3) 0px #8BA6A9;
 }
 
-/* Korean-specific styles */
-/* body.lang-ko
+#projectSection {
+  background-color: #8BA6A9; 
+  color: #593915; 
+  padding: 10rem 0 15rem 0;
+  text-align: left;
+  min-height: 50vh; 
+  width: 100vw; 
+  margin-left: -5.5rem; 
+  margin-right: -5.5rem; 
+  box-sizing: border-box; 
+}
+
+#projectSection h1 {
+  font-family: 'Bagel', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  margin-left: 5.5rem;
+}
+
+/* Passion Section */
+#passionSection {
+  background-color: #A7CECB; 
+  color: #593915; 
+  padding: 13rem 0 0 0;
+  text-align: center;
+  width: 100vw; 
+  margin-left: -5.5rem; 
+  margin-right: -5.5rem; 
+  box-sizing: border-box; 
+}
+
+#passionSection h1 {
+  font-family: 'Bagel', sans-serif;
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  margin-left: 5.5rem; 
+  text-align: left;
+}
+
+.passion-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; 
+  margin-left: 5.5rem; 
+  margin-right: 5.5rem; 
+}
+
+.passion-item {
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #593915; 
+  text-transform: uppercase;
+  padding: 0 1rem;
+}
+
+.box-three {
+  position: absolute; 
+  left: 0; 
+  width: 100vw; 
+  height: 20%; 
+  z-index: 1; 
+  background-color: #A7CECB;
+  aspect-ratio: 3/2;
+  clip-path: ellipse(70% 100% at 50% 0%);
+}
+
+.project-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 5.5rem;
+}
+
+.project-box {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-box:hover {
+  transform: scale(1.05);
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+  transition: filter 0.3s ease-in-out;
+}
+
+.project-box:hover .project-image {
+  filter: brightness(1);
+}
+
+.project-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Bagel', sans-serif;
+  font-size: 1.5rem;
+  color: #F4EBBE;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.project-callout {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Gowun', sans-serif;
+  font-size: 1rem;
+  color: #F4EBBE;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.footer {
+  background-color: #593915; 
+  color: #F4EBBE; 
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: #F4EBBE;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #CACC90; 
+}
+
