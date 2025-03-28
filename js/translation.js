@@ -22,8 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       hello: "Hello,",
       bio1: "Hello, I’m Chloe, a budding UX/UI designer based in Busan, South Korea. I have experience in research, software development, app development, along with UX/UI design.",
       bio2: "I care deeply about people and the moments that make them. Therefore, I am interested in creating human-centered experiences that make a lasting impact and helps connect people.",
-      
-      
+
       //projects translations
       "project1-title": "Project 1",
       "project1-desc": "A brief description of project 1.",
@@ -33,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
       "project3-desc": "A brief description of project 3.",
       "project-detail-title": "Project Title",
       "project-detail-desc": "Full description of the project goes here.",
-      
     },
     ko: {
       projects: "프로젝트",
@@ -43,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
       name: "클로이 맥크라켄의",
       role: "UX / UI 디자이너",
       portfolio: "포트폴리오",
-
 
       hello: "안녕하세요,",
       bio1: "부산에 거주하고 있는 신입 UX/UI 디자이너 클로이입니다.저는 UX/UI 디자인뿐만 아니라 연구, 소프트웨어 개발, 앱 개발 등의 다양한 경험을 가지고 있습니다.",
@@ -57,9 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
       "project3-desc": "프로젝트 3의 간단한 설명입니다.",
       "project-detail-title": "프로젝트 제목",
       "project-detail-desc": "프로젝트에 대한 전체 설명이 여기에 들어갑니다.",
-      
+
       "lang-toggle": "English",
-    }
+    },
   };
 
   // Add an event listener to the language toggle button
@@ -71,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     langToggle.textContent = translations[currentLang]["lang-toggle"];
 
     // Update all elements with data-i18n attributes
-    document.querySelectorAll("[data-i18n]").forEach(el => {
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       if (translations[currentLang][key]) {
         // Update the text content with the translated value
