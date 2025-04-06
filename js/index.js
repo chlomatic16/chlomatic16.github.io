@@ -17,23 +17,41 @@ document.addEventListener("DOMContentLoaded", () => {
   const aboutItems = document.querySelectorAll(
     "#aboutSection .aboutContent > *"
   );
-  const passionItems = document.querySelectorAll(
-    "#passionSection .passion-grid > *"
-  );
   const portfolioItems = document.querySelectorAll(
     "#projectSection .project-grid > *"
   ); // Fix selector
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animate-in");
-        observer.unobserve(entry.target); // Stop observing once animated
-      }
-    });
-  });
+  const observer = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate-in");
+          observer.unobserve(entry.target); // Stop observing once animated
+        }
+      });
+    },
+    { threshold: 0.2 } // Trigger when 20% of the element is visible
+  );
 
   aboutItems.forEach((item) => observer.observe(item));
+
+  const passionItems = document.querySelectorAll(".passion-item");
+  const passionHeading = document.querySelector("#passionSection h1");
+
+  // Observe the heading
+  observer.observe(passionHeading);
+
+  // Observe each passion item
   passionItems.forEach((item) => observer.observe(item));
+
   portfolioItems.forEach((item) => observer.observe(item));
+
+  const projectHeading = document.querySelector("#projectSection h1");
+  const projectItems = document.querySelectorAll(".project-box");
+
+  // Observe the heading
+  observer.observe(projectHeading);
+
+  // Observe each project item
+  projectItems.forEach((item) => observer.observe(item));
 });
