@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   const portfolioItems = document.querySelectorAll(
     "#projectSection .project-grid > *"
-  ); // Fix selector
+  );
 
   const observer = new IntersectionObserver(
     (entries, observer) => {
@@ -34,16 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   aboutItems.forEach((item) => observer.observe(item));
-
-  const passionItems = document.querySelectorAll(".passion-item");
-  const passionHeading = document.querySelector("#passionSection h1");
-
-  // Observe the heading
-  observer.observe(passionHeading);
-
-  // Observe each passion item
-  passionItems.forEach((item) => observer.observe(item));
-
   portfolioItems.forEach((item) => observer.observe(item));
 
   const projectHeading = document.querySelector("#projectSection h1");
