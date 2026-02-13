@@ -26,22 +26,35 @@
               <a
                 href="https://drive.google.com/file/d/1FdxPDfo71qTV1guMFf0ZgkWmRi2PbNCV/view?usp=sharing"
                 target="_blank"
+                class="link js-link"
                 data-i18n="resume"
                 >RESUME</a
               >
             </li>
             <li>
-              <a href="projects.html" data-i18n="projects">PROJECTS</a>
+              <a href="projects.html" class="link js-link" data-i18n="projects"
+                >PROJECTS</a
+              >
             </li>
             <!-- <li>
               <a a href="playground.html" data-i18n="playground">PLAYGROUND</a>
             </li> -->
-            <li><a a href="about.html" data-i18n="about">ABOUT</a></li>
+            <li>
+              <a a href="about.html" class="link js-link" data-i18n="about"
+                >ABOUT</a
+              >
+            </li>
           </ul>
           <!-- <button id="lang-toggle">한국어</button> -->
         </div>
       </nav>
     </header>
+    <div class="js-cursor">
+      <div class="c-cursor__inner c-cursor__inner--circle js-cursor-inner">
+        <div class="c-cursor__side c-cursor__side--left js-cursor-right"></div>
+        <div class="c-cursor__side c-cursor__side--right js-cursor-left"></div>
+      </div>
+    </div>
     <main class="hero">
       <div class="stickys">
         <div class="mainNote">
@@ -51,7 +64,7 @@
           </div>
         </div>
         <div class="aboutNote">
-          <div class="'aboutText">
+          <div class="aboutText">
             She has experience in research, software development, app
             development, along with UX/UI design.
           </div>
@@ -62,5 +75,6 @@
     <footer class="footer"></footer>
     <script type="module" src="js/index.js"></script>
     <script type="module" src="js/translation.js"></script>
+    <script type="module" src="js/cursor.js"></script>
   </body>
 </html>

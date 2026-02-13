@@ -19,6 +19,7 @@ body {
   overflow-x: hidden;
 }
 
+/* NAV BAR */
 header nav {
   display: flex;
   margin: -1rem;
@@ -30,46 +31,29 @@ header nav {
   background-color: whitesmoke;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 15rem;
-  padding-left: 0;
-}
-
 nav a {
   color: #593915;
   text-decoration: none;
   font-family: IBM;
-  font-size: 1rem;
+  font-size: 0.85rem;
   position: relative;
   display: inline-block;
-  transition: all 0.6s ease-in;
-  animation-duration: 2s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
-.nav-left ul,
-.nav-right ul {
+nav ul {
   list-style: none;
   display: flex;
   padding-left: 0;
   margin: 0;
 }
 
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 .nav-right ul {
-  display: flex;
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0;
+  gap: 1.35rem;
 }
 
-a:hover {
+.nav-right a:hover {
   animation-name: pulse;
 }
 
@@ -81,7 +65,7 @@ button {
   border-radius: 21%;
   color: #593915;
   transition: all 0.6s ease-in;
-  animation-duration: 2s;
+  /* animation-duration: 2s; */
 }
 
 button:hover {
@@ -92,65 +76,19 @@ button:hover {
   0% {
     transform: scale(1);
   }
-  50% {
-    transform: scale(1.1);
-  }
   100% {
-    transform: scale(1);
+    transform: scale(1.2);
   }
-}
-
-p {
-  text-align: left;
-  margin: 0;
-}
-
-.hero,
-.about {
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.about {
-  flex-direction: row;
-  text-align: left;
-}
-
-.name {
-  font-size: 3rem;
-  font-weight: 400;
-  text-align: left;
-  width: 100%;
-  margin: 0;
-  padding-bottom: 0;
 }
 
 .hero {
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
   padding: 0 2rem;
-}
-
-.hero h2 {
-  font-size: 10rem;
-  margin: 0;
-  padding: 0;
-}
-
-.role {
-  font-size: 2.5rem;
-}
-
-.bio {
-  max-width: 600px;
-  flex: 2;
 }
 
 /* Index Page */
@@ -174,7 +112,7 @@ p {
   gap: 1.5rem;
 }
 
-.footer ul {
+/* .footer ul {
   list-style: none;
   display: flex;
   gap: 2rem;
@@ -189,7 +127,7 @@ p {
 
 .footer a:hover {
   color: #cacc90;
-}
+} */
 
 /* STICKYS */
 .mainNote {
@@ -206,7 +144,7 @@ p {
 
 .mainNote:hover {
   transform: rotate(-6deg) scale(1.25);
-  z-index: 999;
+  z-index: 40;
 }
 
 .intro {
@@ -217,6 +155,7 @@ p {
 }
 
 .aboutNote {
+  background-color: #a7cecb;
   --s: 25px;
   --w: 300px;
   width: round(var(--w), 4 * var(--s));
@@ -230,12 +169,6 @@ p {
     radial-gradient(calc(sqrt(2) * var(--s)), #0000 100%, #000 calc(100% + 1px))
       var(--s) var(--s) padding-box;
   mask-size: calc(var(--s) * 4) calc(var(--s) * 4);
-  background-color: #a7cecb;
-  font-family: ReenieBeenie;
-  font-size: 1.6rem;
-  line-height: 2rem;
-  font-weight: 600;
-  text-align: center;
   transform: rotate(7.2deg);
   transition: 0.5s;
   margin-left: -3rem;
@@ -245,6 +178,55 @@ p {
   transform: rotate(5deg) scale(1.25);
 }
 
+.aboutText {
+  padding-top: 1rem;
+  font-family: ReenieBeenie;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
 .stickys {
   display: flex;
+}
+
+/* CURSOR */
+@media (any-pointer: fine) {
+  .c-cursor {
+    display: block;
+  }
+
+  .c-cursor__inner {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    z-index: 50;
+  }
+
+  .c-cursor__side {
+    position: absolute;
+    top: 50%;
+    width: 5px;
+    height: 1px;
+    background: #fff;
+    opacity: 0;
+  }
+
+  .c-cursor__side--left {
+    right: calc(100% + 5px);
+  }
+
+  .c-cursor__side--right {
+    left: calc(100% + 5px);
+  }
+
+  .c-cursor__inner--circle {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #fff;
+  }
 }
