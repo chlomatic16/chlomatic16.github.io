@@ -365,3 +365,58 @@ button:hover {
   padding: 0;
   background-color: #cacc90;
 }
+
+.projectLink {
+  text-decoration: none;
+  color: #969696;
+  transition: 2s;
+}
+
+.projectLink:hover {
+  transform: scale(1.08);
+}
+
+/*PROJECT PAGE */
+.projectContainer {
+  align-items: stretch;
+  display: flex;
+  margin: 0.5rem;
+  font-family: "Figtree", "Arial Narrow", Arial, sans-serif;
+  font-size: 14.5px;
+}
+
+.sideNav {
+  padding-top: 1.5rem;
+}
+
+.sideNav ul {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sideNav li {
+  display: block;
+  width: 100%;
+}
+
+.sideNav a {
+  display: block;
+  padding: 1rem 1.5rem 0 1.5rem;
+  text-decoration: none;
+  color: #818181;
+}
+
+.projectInfo {
+  flex-grow: 1;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-left: #818181 solid 1px;
+}
+
+.projectBackground {
+  padding: 0 5rem;
+  width: 70%;
+}
