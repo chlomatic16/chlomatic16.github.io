@@ -409,14 +409,54 @@ button:hover {
   color: #818181;
 }
 
-.projectInfo {
+.projectOver {
   flex-grow: 1;
   background-color: #f4f4f4;
-  padding: 20px;
   border-left: #818181 solid 1px;
+  margin: 0.8rem 0;
 }
 
 .projectBackground {
   padding: 0 5rem;
   width: 70%;
+}
+
+.projectBackground h2 {
+  font-size: 35px;
+  margin-bottom: 0;
+  color: #593915;
+}
+
+.projectBackground h3 {
+  font-size: 25px;
+  margin-bottom: 0;
+  color: #593915;
+}
+
+.projectBackground p,
+.projectBackground li {
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.projectBackground li {
+  margin-bottom: 0.25rem;
+}
+
+.feedbackContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.feedbackItem {
+  /* flex: 0 0 50%; */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.feedbackImg img {
+  width: 100%;
+  object-fit: contain;
+  display: block;
 }
