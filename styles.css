@@ -417,6 +417,8 @@ button:hover {
 }
 
 .projectBackground {
+  display: flex;
+  flex-direction: column;
   padding: 0 5rem;
   width: 70%;
 }
@@ -443,20 +445,21 @@ button:hover {
   margin-bottom: 0.25rem;
 }
 
+/* FEEDBACK CONTAINER */
+
 .feedbackContainer {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  gap: 1rem;
 }
 
-.feedbackItem {
-  /* flex: 0 0 50%; */
-  padding: 10px;
-  box-sizing: border-box;
+.feedback {
+  width: 20rem;
+  border: #000 solid 2px;
+  text-align: left;
+  padding: 0.85rem;
 }
-
-.feedbackImg img {
-  width: 100%;
-  object-fit: contain;
-  display: block;
+.checked {
+  color: orange;
 }
